@@ -1,20 +1,15 @@
-from typing import Union
-
+from routes import base
 from fastapi import FastAPI
+from dotenv import load_dotenv
+load_dotenv(".env")
+
 
 app = FastAPI()
 
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}
 
 
-@app.get("/welcome")
-def read_root():
-    return {"welcome": "User"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+app.include_router(base.base_router)

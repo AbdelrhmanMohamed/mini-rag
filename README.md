@@ -22,13 +22,8 @@ This is a simple mini-RAG (Retrieval-Augmented Generation) application that uses
 ## Requirements
 
 - Python 3.7 or higher
-- Streamlit
-- LangChain
-- miniconda
-- OpenAI API key (for using OpenAI's language model and embeddings)
-- PyMuPDF (for PDF text extraction)
-- Chroma (for vector store)
-- PyPDF2 (for PDF text extraction)
+- FastAPI
+- uvicorn
 
 ## Installation
 
@@ -46,8 +41,6 @@ This is a simple mini-RAG (Retrieval-Augmented Generation) application that uses
    conda create -n mini-rag python=3.8
    conda activate mini-rag
    pip install -r requirements.txt
-   pip install streamlit langchain pymupdf chroma pypdf2
-   pip install openai
    ```
 
 ### Usage

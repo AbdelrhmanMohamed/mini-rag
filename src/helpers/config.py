@@ -10,6 +10,8 @@ class Settings(BaseSettings):
     FILE_ALLOWED_TYPES: list
     FILE_MAX_SIZE: int
     FILE_DEFAULT_CHANUK_SIZE: int
+    MONGO_URI: str
+    MONGO_DB: str
     model_config = SettingsConfigDict(
         env_file=Path(__file__).parents[2] / ".env")
 

@@ -6,3 +6,5 @@ class ResponeseEnums(Enum):
     FILE_UPLOAD_ERROR = "error:file type not supported"
     FILE_UPLOAD_LARGEST_SIZE = "error:file is largest size"
     FILE_UPLOAD_TYPE_NOT_SUPPORTED = "error:file type not supported"
+    FILE_PROCESS_SUCCESS = "success:process done"
+    FILE_PROCESS_ERROR = "error:process error"

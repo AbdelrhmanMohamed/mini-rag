@@ -76,7 +76,6 @@ async def process_file(request: Request, project_id: str, process_request: Proce
     project_model = ProjectModel(db_client=request.app.db_client)
     chunk_model = ChunkModel(db_client=request.app.db_client)
     project = await project_model.get_project_one_create(project_id=project_id)
-    print(str(project.id), 'project idddddddd')
     process_controller = ProcessController(project_id=project_id)
     file_content = process_controller.get_file_content(file_id=file_id)
     file_chunks = process_controller.process_file(
@@ -113,10 +112,9 @@ async def process_file(request: Request, project_id: str, process_request: Proce
     )
 
 
-@data_router.get("/project/get/{project_id}")
-async def get_project(request: Request, project_id: str, app_settings: Settings = Depends(get_settings)):
+@data_router.post("/project/create")
+async def create_project(request: Request, project: ProjectSchema):
     project_model = ProjectModel(db_client=request.app.db_client)
-    chunk_model = ChunkModel(db_client=request.app.db_client)
-    project = await chunk_model.get_all_chunks(project_id=project_id)
+    project = await project_model.create_project(project)
     print(project, 'project')
     return "00"

@@ -18,3 +18,14 @@ class DataChunkSchema(BaseModel):
             ObjectId: str
         }
     }
+
+    @classmethod
+    def get_indexses(cls):
+        return [
+            {
+                "key": [("chunk_project_id", 1)],
+                "name": "chunk_project_id_index_1",
+                "unique": False,
+                # "sparse": True
+            }
+        ]

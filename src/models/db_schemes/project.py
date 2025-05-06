@@ -22,3 +22,14 @@ class ProjectSchema(BaseModel):
             ObjectId: str
         }
     }
+
+    @classmethod
+    def get_indexses(cls):
+        return [
+            {
+                "key": [("project_id", 1)],
+                "name": "project_id_index_1",
+                "unique": True,
+                "sparse": True
+            }
+        ]
